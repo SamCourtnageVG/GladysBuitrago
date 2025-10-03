@@ -23,31 +23,52 @@
     </div>
   </header>
 
-  <section id="about" class="section">
-  <div>
-    <h2>Acerca de mí</h2>
-    <p>
-      Estudié Diseño de Moda, Textiles y Accesorios y he trabajado más de 20 años en la industria de confección.
-      Me apasiona transformar ideas en resultados concretos, optimizando recursos y cuidando cada detalle.
-    </p>
-<div class="gallery">
-  <img src="images/About Me Image.jpeg" alt="Gladys con sombrero">
-  <img src="images/GladysDesk.jpg" alt="Gladys trabajando en su escritorio">
-  <img src="images/GladysLaptop.jpg" alt="Computador con patrones de moda">
-</div>
-</div>
-    </div>
-  </div>
-</section>
+  <main>
+    <!-- ABOUT: big image left, text right; gallery below -->
+    <section id="about" class="section">
+      <div class="grid two about-split">
+        <!-- LEFT: big portrait -->
+        <div class="frame about-hero">
+          <!-- If your file is .jpeg, leave it; if it's .jpg, change the extension to .jpg -->
+          <img src="images/About Me Image.jpeg" alt="Gladys con sombrero">
+        </div>
 
+        <!-- RIGHT: text -->
+        <div>
+          <h2>Acerca de mí</h2>
+          <p>
+            Estudié Diseño de Moda, Textiles y Accesorios y he trabajado más de 20 años en la industria de confección.
+            Me apasiona transformar ideas en resultados concretos, optimizando recursos y cuidando cada detalle.
+          </p>
+        </div>
+      </div>
+
+      <!-- BELOW: other photos as gallery -->
+      <div class="gallery about-gallery">
+        <!-- Change .jpg to .jpeg if that matches your actual filenames -->
+        <img src="images/GladysDesk.jpg" alt="Gladys trabajando en su escritorio">
+        <img src="images/GladysLaptop.jpg" alt="Computador con patrones de moda">
+      </div>
+    </section>
+
+    <!-- WORK -->
     <section id="work" class="section alt">
       <h2>Lo que hago</h2>
       <p>Desarrollo de patrones, fichas técnicas y acompañamiento desde la concepción de la idea hasta la producción.</p>
       <div class="gallery">
-        <a href="images/page-01.png" target="_blank"><img src="images/page-01.png" alt="Página 1 del portafolio"></a><a href="images/page-02.png" target="_blank"><img src="images/page-02.png" alt="Página 2 del portafolio"></a><a href="images/page-03.png" target="_blank"><img src="images/page-03.png" alt="Página 3 del portafolio"></a><a href="images/page-04.png" target="_blank"><img src="images/page-04.png" alt="Página 4 del portafolio"></a><a href="images/page-05.png" target="_blank"><img src="images/page-05.png" alt="Página 5 del portafolio"></a><a href="images/page-06.png" target="_blank"><img src="images/page-06.png" alt="Página 6 del portafolio"></a><a href="images/page-07.png" target="_blank"><img src="images/page-07.png" alt="Página 7 del portafolio"></a><a href="images/page-08.png" target="_blank"><img src="images/page-08.png" alt="Página 8 del portafolio"></a><a href="images/page-09.png" target="_blank"><img src="images/page-09.png" alt="Página 9 del portafolio"></a>
+        <a href="images/page-01.png" target="_blank"><img src="images/page-01.png" alt="Página 1 del portafolio"></a>
+        <a href="images/page-02.png" target="_blank"><img src="images/page-02.png" alt="Página 2 del portafolio"></a>
+        <a href="images/page-03.png" target="_blank"><img src="images/page-03.png" alt="Página 3 del portafolio"></a>
+        <a href="images/page-04.png" target="_blank"><img src="images/page-04.png" alt="Página 4 del portafolio"></a>
+        <a href="images/page-05.png" target="_blank"><img src="images/page-05.png" alt="Página 5 del portafolio"></a>
+        <a href="images/page-06.png" target="_blank"><img src="images/page-06.png" alt="Página 6 del portafolio"></a>
+        <a href="images/page-07.png" target="_blank"><img src="images/page-07.png" alt="Página 7 del portafolio"></a>
+        <a href="images/page-08.png" target="_blank"><img src="images/page-08.png" alt="Página 8 del portafolio"></a>
+        <a href="images/page-09.png" target="_blank"><img src="images/page-09.png" alt="Página 9 del portafolio"></a>
       </div>
     </section>
 
+    <!-- PROCESS -->
     <section id="process" class="section">
       <div class="grid two">
         <div>
@@ -66,6 +87,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="section alt">
       <h2>Contacto</h2>
       <p>
