@@ -8,6 +8,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Minimal inline styles so the WhatsApp button looks good without editing style.css -->
+  <style>
+    .btn{
+      display:inline-block;
+      padding:.6rem 1rem;
+      border:1px solid #111827;
+      border-radius:999px;
+      text-decoration:none;
+      color:#111827;
+    }
+    .btn:hover{ background:#111827; color:#fff; transition:.2s; }
+    /* About split helper classes (keeps large left image) */
+    .about-split { align-items: center; gap: 2rem; }
+    .about-hero { height: clamp(340px, 56vh, 580px); }
+    .about-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .about-gallery { margin-top: 1.25rem; }
+    @media (max-width: 900px){ .about-hero{ height:auto; } }
+  </style>
 </head>
 <body>
   <header class="hero">
@@ -29,7 +48,7 @@
       <div class="grid two about-split">
         <!-- LEFT: big portrait -->
         <div class="frame about-hero">
-          <!-- If your file is .jpeg, leave it; if it's .jpg, change the extension to .jpg -->
+          <!-- Change to .jpg if your file is .jpg; keep .jpeg if it’s .jpeg -->
           <img src="images/About Me Image.jpeg" alt="Gladys con sombrero">
         </div>
 
@@ -46,8 +65,8 @@
       <!-- BELOW: other photos as gallery -->
       <div class="gallery about-gallery">
         <!-- Change .jpg to .jpeg if that matches your actual filenames -->
-        <img src="images/GladysDesk.jpg" alt="Gladys trabajando en su escritorio">
-        <img src="images/GladysLaptop.jpg" alt="Computador con patrones de moda">
+        <img loading="lazy" src="images/GladysDesk.jpg" alt="Gladys trabajando en su escritorio">
+        <img loading="lazy" src="images/GladysLaptop.jpg" alt="Computador con patrones de moda">
       </div>
     </section>
 
@@ -56,15 +75,15 @@
       <h2>Lo que hago</h2>
       <p>Desarrollo de patrones, fichas técnicas y acompañamiento desde la concepción de la idea hasta la producción.</p>
       <div class="gallery">
-        <a href="images/page-01.png" target="_blank"><img src="images/page-01.png" alt="Página 1 del portafolio"></a>
-        <a href="images/page-02.png" target="_blank"><img src="images/page-02.png" alt="Página 2 del portafolio"></a>
-        <a href="images/page-03.png" target="_blank"><img src="images/page-03.png" alt="Página 3 del portafolio"></a>
-        <a href="images/page-04.png" target="_blank"><img src="images/page-04.png" alt="Página 4 del portafolio"></a>
-        <a href="images/page-05.png" target="_blank"><img src="images/page-05.png" alt="Página 5 del portafolio"></a>
-        <a href="images/page-06.png" target="_blank"><img src="images/page-06.png" alt="Página 6 del portafolio"></a>
-        <a href="images/page-07.png" target="_blank"><img src="images/page-07.png" alt="Página 7 del portafolio"></a>
-        <a href="images/page-08.png" target="_blank"><img src="images/page-08.png" alt="Página 8 del portafolio"></a>
-        <a href="images/page-09.png" target="_blank"><img src="images/page-09.png" alt="Página 9 del portafolio"></a>
+        <a href="images/page-01.png" target="_blank"><img loading="lazy" src="images/page-01.png" alt="Página 1 del portafolio"></a>
+        <a href="images/page-02.png" target="_blank"><img loading="lazy" src="images/page-02.png" alt="Página 2 del portafolio"></a>
+        <a href="images/page-03.png" target="_blank"><img loading="lazy" src="images/page-03.png" alt="Página 3 del portafolio"></a>
+        <a href="images/page-04.png" target="_blank"><img loading="lazy" src="images/page-04.png" alt="Página 4 del portafolio"></a>
+        <a href="images/page-05.png" target="_blank"><img loading="lazy" src="images/page-05.png" alt="Página 5 del portafolio"></a>
+        <a href="images/page-06.png" target="_blank"><img loading="lazy" src="images/page-06.png" alt="Página 6 del portafolio"></a>
+        <a href="images/page-07.png" target="_blank"><img loading="lazy" src="images/page-07.png" alt="Página 7 del portafolio"></a>
+        <a href="images/page-08.png" target="_blank"><img loading="lazy" src="images/page-08.png" alt="Página 8 del portafolio"></a>
+        <a href="images/page-09.png" target="_blank"><img loading="lazy" src="images/page-09.png" alt="Página 9 del portafolio"></a>
       </div>
     </section>
 
@@ -82,7 +101,7 @@
           </ol>
         </div>
         <div class="frame">
-          <img src="images/page-06.png" alt="Proceso de trabajo">
+          <img loading="lazy" src="images/page-06.png" alt="Proceso de trabajo">
         </div>
       </div>
     </section>
@@ -94,6 +113,12 @@
         <strong>Email:</strong> <a href="mailto:bgladys564@gmail.com">bgladys564@gmail.com</a><br>
         <strong>Teléfono:</strong> +57 3134774083
       </p>
+
+      <!-- WhatsApp button (Feature 3) -->
+      <p>
+        <a class="btn" href="https://wa.me/573134774083" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+      </p>
+
       <p class="note">¿Te interesa colaborar? Escríbeme y construyamos una colección juntos.</p>
     </section>
   </main>
@@ -101,5 +126,35 @@
   <footer class="footer">
     <p>&copy; Imágenes tomadas de tu PDF · Hecho con GitHub Pages</p>
   </footer>
+
+  <!-- Lightbox (Feature 1): click any image to enlarge -->
+  <div id="lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:50">
+    <img id="lightbox-img" alt="" style="max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4)">
+  </div>
+  <script>
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+
+      // Enable click-to-zoom on gallery and framed images
+      document.querySelectorAll('.gallery img, .frame img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => {
+          lbImg.src = img.src;
+          lb.style.display = 'flex';
+        });
+      });
+
+      // Click outside the image to close
+      lb.addEventListener('click', e => {
+        if (e.target === lb) lb.style.display = 'none';
+      });
+
+      // ESC to close
+      window.addEventListener('keydown', e => {
+        if (e.key === 'Escape') lb.style.display = 'none';
+      });
+    })();
+  </script>
 </body>
 </html>
