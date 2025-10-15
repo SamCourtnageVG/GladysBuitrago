@@ -29,7 +29,6 @@
       <div class="grid two about-split">
         <!-- LEFT: big portrait -->
         <div class="frame about-hero">
-          <!-- Change extension if your file is .jpg -->
           <img src="images/About Me Image.jpeg" alt="Gladys con sombrero">
         </div>
 
@@ -94,14 +93,26 @@
         <strong>Teléfono:</strong> +57 3134774083
       </p>
 
-      <!-- WhatsApp CTA with resized logo -->
-      <p>
-        <a class="btn btn--icon" href="https://wa.me/573134774083" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
-  <img src="images/Digital_Stacked_Green.png" alt="" class="icon whatsapp">
-  Escríbeme por WhatsApp
-</a>
+      <!-- Social/Contact buttons -->
+      <div class="btn-row">
+        <!-- WhatsApp -->
+        <a class="btn btn--icon btn--whatsapp" href="https://wa.me/573134774083" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
+          <img src="images/Digital_Stacked_Green.png" alt="" class="icon">
+          Escríbeme por WhatsApp
+        </a>
 
-      </p>
+        <!-- Instagram (replace YOURHANDLE) -->
+        <a class="btn btn--icon btn--instagram" href="https://instagram.com/YOURHANDLE" target="_blank" rel="noopener" aria-label="Ver Instagram">
+          <img src="images/Instagram_Glyph_Gradient.png" alt="" class="icon">
+          Instagram
+        </a>
+
+        <!-- LinkedIn (replace YOURHANDLE) -->
+        <a class="btn btn--icon btn--linkedin" href="https://www.linkedin.com/in/YOURHANDLE/" target="_blank" rel="noopener" aria-label="Ver LinkedIn">
+          <img src="images/LI-Logo.png" alt="" class="icon">
+          LinkedIn
+        </a>
+      </div>
 
       <p class="note">¿Te interesa colaborar? Escríbeme y construyamos una colección juntos.</p>
     </section>
@@ -111,7 +122,7 @@
     <p>&copy; Imágenes tomadas de tu PDF · Hecho con GitHub Pages</p>
   </footer>
 
-  <!-- Lightbox: click any image to enlarge -->
+  <!-- Lightbox -->
   <div id="lightbox" class="lightbox">
     <img id="lightbox-img" alt="">
   </div>
@@ -120,7 +131,6 @@
       const lb = document.getElementById('lightbox');
       const lbImg = document.getElementById('lightbox-img');
 
-      // Enable click-to-zoom on gallery and framed images
       document.querySelectorAll('.gallery img, .frame img').forEach(img => {
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', () => {
@@ -129,12 +139,10 @@
         });
       });
 
-      // Click outside the image to close
       lb.addEventListener('click', e => {
         if (e.target === lb) lb.classList.remove('open');
       });
 
-      // ESC to close
       window.addEventListener('keydown', e => {
         if (e.key === 'Escape') lb.classList.remove('open');
       });
