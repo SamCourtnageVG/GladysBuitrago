@@ -36,41 +36,48 @@ ol{margin:0;padding-left:1.25rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
 /* -------- Buttons -------- */
-/* Default: no border (no “circle”). Only show border on hover/focus. */
+/* Default: no border (“circle”) until hover/focus */
 .btn{
   display:inline-flex;
   align-items:center;
   gap:.6rem;
   padding:.6rem 1rem;
-  border:none;                    /* no circle by default */
+  border:none;
   border-radius:999px;
   text-decoration:none;
   color:#111827;
-  background:transparent;         /* keep transparent at rest */
+  background:transparent;
   transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
 }
-
-/* Hover/focus: show the circle outline (and a subtle ring for accessibility) */
 .btn:hover,
 .btn:focus-visible{
-  border:1.5px solid var(--accent); /* circle only on hover/focus */
+  border:1.5px solid var(--accent);
   box-shadow:0 0 0 3px rgba(17,24,39,.08);
-  background:transparent;           /* stays transparent */
+  background:transparent;
   color:#111827;
   outline:none;
 }
 
 /* Button with icon (WhatsApp) */
-.btn--icon{ display:inline-flex; align-items:center; gap:.5rem; }
-
-/* Larger, natural icon size (slightly bigger than before) */
+.btn--icon{
+  display:inline-flex;
+  align-items:center;
+  gap:.75rem; /* a bit more space for larger icon */
+}
+/* Larger, natural icon size (~2×) */
 .btn--icon .icon{
-  width: clamp(18px, 2.8vw, 24px);   /* scales between 18–24px */
-  height: auto;                      /* keep aspect ratio */
+  width: clamp(32px, 5.2vw, 44px); /* responsive 32–44px */
+  height: auto;                     /* keep aspect ratio */
   display:inline-block;
   vertical-align:middle;
   object-fit:contain;
-  border-radius:0;                   /* PNG edges stay crisp */
+  border-radius:0;                  /* keep PNG edges crisp */
+}
+
+/* Small phones: slightly reduce icon and gap */
+@media (max-width: 420px){
+  .btn--icon .icon{ width: clamp(26px, 7vw, 32px); }
+  .btn--icon{ gap:.6rem; }
 }
 
 /* -------- About split layout -------- */
@@ -78,10 +85,7 @@ ol{margin:0;padding-left:1.25rem}
 .about-hero { height: clamp(340px, 56vh, 580px); }
 .about-hero img { width: 100%; height: 100%; object-fit: cover; }
 .about-gallery { margin-top: 1.25rem; }
-
-@media (max-width: 900px){
-  .about-hero { height: auto; }
-}
+@media (max-width: 900px){ .about-hero { height: auto; } }
 
 /* -------- Lightbox -------- */
 .lightbox{
