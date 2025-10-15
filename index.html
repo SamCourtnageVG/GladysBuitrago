@@ -29,7 +29,7 @@
       <div class="grid two about-split">
         <!-- LEFT: big portrait -->
         <div class="frame about-hero">
-          <!-- Change extension if needed -->
+          <!-- Change extension if your file is .jpg -->
           <img src="images/About Me Image.jpeg" alt="Gladys con sombrero">
         </div>
 
@@ -94,10 +94,10 @@
         <strong>Teléfono:</strong> +57 3134774083
       </p>
 
-      <!-- WhatsApp CTA with logo -->
+      <!-- WhatsApp CTA with resized logo -->
       <p>
         <a class="btn btn--icon" href="https://wa.me/573134774083" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
-          <img src="images/download.jpg" alt="" class="icon">
+          <img src="images/Digital_Stacked_Green.png" alt="" class="icon whatsapp">
           Escríbeme por WhatsApp
         </a>
       </p>
@@ -111,8 +111,8 @@
   </footer>
 
   <!-- Lightbox: click any image to enlarge -->
-  <div id="lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:50">
-    <img id="lightbox-img" alt="" style="max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4)">
+  <div id="lightbox" class="lightbox">
+    <img id="lightbox-img" alt="">
   </div>
   <script>
     (function(){
@@ -124,18 +124,18 @@
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', () => {
           lbImg.src = img.src;
-          lb.style.display = 'flex';
+          lb.classList.add('open');
         });
       });
 
       // Click outside the image to close
       lb.addEventListener('click', e => {
-        if (e.target === lb) lb.style.display = 'none';
+        if (e.target === lb) lb.classList.remove('open');
       });
 
       // ESC to close
       window.addEventListener('keydown', e => {
-        if (e.key === 'Escape') lb.style.display = 'none';
+        if (e.key === 'Escape') lb.classList.remove('open');
       });
     })();
   </script>
