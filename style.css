@@ -36,47 +36,49 @@ ol{margin:0;padding-left:1.25rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
 /* -------- Buttons -------- */
+/* Default: no border (no “circle”). Only show border on hover/focus. */
 .btn{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
   padding:.6rem 1rem;
-  border:1px solid #111827;
+  border:none;                    /* no circle by default */
   border-radius:999px;
   text-decoration:none;
   color:#111827;
+  background:transparent;         /* keep transparent at rest */
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
 }
-.btn:hover{
-  background:#111827;
-  color:#fff;
-  transition:.2s;
+
+/* Hover/focus: show the circle outline (and a subtle ring for accessibility) */
+.btn:hover,
+.btn:focus-visible{
+  border:1.5px solid var(--accent); /* circle only on hover/focus */
+  box-shadow:0 0 0 3px rgba(17,24,39,.08);
+  background:transparent;           /* stays transparent */
+  color:#111827;
+  outline:none;
 }
 
 /* Button with icon (WhatsApp) */
-.btn--icon{
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-}
-/* Small, natural icon size */
+.btn--icon{ display:inline-flex; align-items:center; gap:.5rem; }
+
+/* Larger, natural icon size (slightly bigger than before) */
 .btn--icon .icon{
-  width: clamp(16px, 2.2vw, 20px);  /* scales 16–20px */
+  width: clamp(18px, 2.8vw, 24px);   /* scales between 18–24px */
   height: auto;                      /* keep aspect ratio */
   display:inline-block;
   vertical-align:middle;
   object-fit:contain;
-  border-radius: 0;                   /* PNG with transparency looks crisp */
+  border-radius:0;                   /* PNG edges stay crisp */
 }
 
 /* -------- About split layout -------- */
 .about-split { align-items: center; gap: 2rem; }
-
-/* Big portrait on the left */
 .about-hero { height: clamp(340px, 56vh, 580px); }
 .about-hero img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Spacing for the gallery below */
 .about-gallery { margin-top: 1.25rem; }
 
-/* Mobile: stack columns and let image height shrink naturally */
 @media (max-width: 900px){
   .about-hero { height: auto; }
 }
@@ -95,4 +97,15 @@ ol{margin:0;padding-left:1.25rem}
 .lightbox img{
   max-width:92vw;
   max-height:92vh;
-  bor
+  border-radius:12px;
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+/* -------- Optional: Dark mode via system preference -------- */
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b0b0b; --ink:#f4f4f4; --muted:#9aa0a6; --accent:#e5e7eb; --soft:#121212 }
+  nav a{border-color:#222}
+  .frame{background:#111;border-color:#222}
+  .gallery img{border-color:#222}
+  .footer{border-color:#222}
+}
