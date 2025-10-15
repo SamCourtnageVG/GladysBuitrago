@@ -56,13 +56,14 @@ ol{margin:0;padding-left:1.25rem}
   align-items:center;
   gap:.5rem;
 }
+/* Small, natural icon size */
 .btn--icon .icon{
-  width:20px;
-  height:20px;
+  width: clamp(16px, 2.2vw, 20px);  /* scales 16–20px */
+  height: auto;                      /* keep aspect ratio */
   display:inline-block;
   vertical-align:middle;
-  border-radius:4px;  /* optional */
   object-fit:contain;
+  border-radius: 0;                   /* PNG with transparency looks crisp */
 }
 
 /* -------- About split layout -------- */
@@ -80,11 +81,18 @@ ol{margin:0;padding-left:1.25rem}
   .about-hero { height: auto; }
 }
 
-/* -------- Optional: Dark mode via system preference -------- */
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#0b0b0b; --ink:#f4f4f4; --muted:#9aa0a6; --accent:#e5e7eb; --soft:#121212 }
-  nav a{border-color:#222}
-  .frame{background:#111;border-color:#222}
-  .gallery img{border-color:#222}
-  .footer{border-color:#222}
+/* -------- Lightbox -------- */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:50;
 }
+.lightbox.open{ display:flex; }
+.lightbox img{
+  max-width:92vw;
+  max-height:92vh;
+  bor
