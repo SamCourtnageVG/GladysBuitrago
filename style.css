@@ -11,10 +11,13 @@ h1,h2{font-family:'Playfair Display',serif;margin:0 0 0.75rem}
 h1{font-size:clamp(2rem,4vw,3.25rem)}
 h2{font-size:clamp(1.5rem,3vw,2rem)}
 .subtitle{color:var(--muted);margin-top:.25rem}
+
 .section{padding:clamp(2rem,5vw,4rem) clamp(1rem,4vw,3rem)}
 .section.alt{background:var(--soft)}
+
 .hero{background:linear-gradient(180deg,#f9fafb,#ffffff);border-bottom:1px solid #eee}
 .hero-inner{padding:clamp(2rem,6vw,5rem) clamp(1rem,4vw,3rem);max-width:1100px;margin:0 auto}
+
 nav{margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--accent);padding:.4rem .8rem;border-radius:999px;border:1px solid #e5e7eb}
 nav a:hover{background:#111827;color:#fff;transition:.2s}
@@ -32,7 +35,22 @@ ol{margin:0;padding-left:1.25rem}
 .note{color:var(--muted);margin-top:.75rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
-/* ========== About split layout ========== */
+/* -------- Buttons (used for WhatsApp, filters, etc.) -------- */
+.btn{
+  display:inline-block;
+  padding:.6rem 1rem;
+  border:1px solid #111827;
+  border-radius:999px;
+  text-decoration:none;
+  color:#111827;
+}
+.btn:hover{
+  background:#111827;
+  color:#fff;
+  transition:.2s;
+}
+
+/* -------- About split layout (big image left, text right) -------- */
 .about-split { align-items: center; gap: 2rem; }
 
 /* Big portrait on the left */
@@ -53,4 +71,13 @@ ol{margin:0;padding-left:1.25rem}
 /* Mobile: stack columns and let image height shrink naturally */
 @media (max-width: 900px){
   .about-hero { height: auto; }
+}
+
+/* -------- Optional: Dark mode via system preference -------- */
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b0b0b; --ink:#f4f4f4; --muted:#9aa0a6; --accent:#e5e7eb; --soft:#121212 }
+  nav a{border-color:#222}
+  .frame{background:#111;border-color:#222}
+  .gallery img{border-color:#222}
+  .footer{border-color:#222}
 }
