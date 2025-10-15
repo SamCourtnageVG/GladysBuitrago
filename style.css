@@ -35,7 +35,7 @@ ol{margin:0;padding-left:1.25rem}
 .note{color:var(--muted);margin-top:.75rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
-/* -------- Buttons (used for WhatsApp, filters, etc.) -------- */
+/* -------- Buttons -------- */
 .btn{
   display:inline-block;
   padding:.6rem 1rem;
@@ -50,23 +50,30 @@ ol{margin:0;padding-left:1.25rem}
   transition:.2s;
 }
 
-/* -------- About split layout (big image left, text right) -------- */
+/* Button with icon (WhatsApp) */
+.btn--icon{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.btn--icon .icon{
+  width:20px;
+  height:20px;
+  display:inline-block;
+  vertical-align:middle;
+  border-radius:4px;  /* optional */
+  object-fit:contain;
+}
+
+/* -------- About split layout -------- */
 .about-split { align-items: center; gap: 2rem; }
 
 /* Big portrait on the left */
-.about-hero {
-  height: clamp(340px, 56vh, 580px);
-}
-.about-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  /* keeps it nicely framed */
-}
+.about-hero { height: clamp(340px, 56vh, 580px); }
+.about-hero img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Spacing for the gallery below */
-.about-gallery { 
-  margin-top: 1.25rem; 
-}
+.about-gallery { margin-top: 1.25rem; }
 
 /* Mobile: stack columns and let image height shrink naturally */
 @media (max-width: 900px){
