@@ -36,7 +36,7 @@ ol{margin:0;padding-left:1.25rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
 /* -------- Buttons -------- */
-/* Default: no border (“circle”) until hover/focus */
+/* Default: no border until hover/focus (no “circle” at rest) */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -58,26 +58,49 @@ ol{margin:0;padding-left:1.25rem}
   outline:none;
 }
 
-/* Button with icon (WhatsApp) */
+/* Button with icon (shared) */
 .btn--icon{
   display:inline-flex;
   align-items:center;
-  gap:.75rem; /* a bit more space for larger icon */
+  gap:.75rem; /* extra space for larger icon */
 }
-/* Larger, natural icon size (~2×) */
+/* WhatsApp/Instagram/LinkedIn icon size (~2×, responsive) */
 .btn--icon .icon{
-  width: clamp(32px, 5.2vw, 44px); /* responsive 32–44px */
-  height: auto;                     /* keep aspect ratio */
+  width: clamp(32px, 5.2vw, 44px);
+  height: auto;
   display:inline-block;
   vertical-align:middle;
   object-fit:contain;
-  border-radius:0;                  /* keep PNG edges crisp */
+  border-radius:0;
 }
-
 /* Small phones: slightly reduce icon and gap */
 @media (max-width: 420px){
   .btn--icon .icon{ width: clamp(26px, 7vw, 32px); }
   .btn--icon{ gap:.6rem; }
+}
+
+/* Row layout for social CTAs */
+.btn-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+}
+
+/* Brand hover colors */
+.btn--whatsapp:hover,
+.btn--whatsapp:focus-visible{
+  border-color:#25D366;     /* WhatsApp green */
+  color:#25D366;
+}
+.btn--instagram:hover,
+.btn--instagram:focus-visible{
+  border-color:#E1306C;     /* Instagram pink-ish */
+  color:#E1306C;
+}
+.btn--linkedin:hover,
+.btn--linkedin:focus-visible{
+  border-color:#0A66C2;     /* LinkedIn blue */
+  color:#0A66C2;
 }
 
 /* -------- About split layout -------- */
