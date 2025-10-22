@@ -189,10 +189,10 @@ ol{margin:0;padding-left:1.25rem}
 /* Card: stop forcing square, give a responsive fixed height */
 .service-card.sm{
   aspect-ratio: auto;                     /* no longer a square */
-  height: clamp(380px, 28vw, 520px);      /* taller rectangle for more text */
+  height: clamp(380px, 28vw, 600px);      /* taller rectangle for more text */
   padding: 16px;                          /* a bit more inner space */
   border-radius: 20px;
-  grid-template-rows: 40% 1fr;            /* image 40%, text area 60% */
+  grid-template-rows: 35% 1fr;            /* image 35%, text area 65% */
 }
 
 /* Image area fills its row cleanly */
