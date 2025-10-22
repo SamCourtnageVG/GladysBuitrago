@@ -36,6 +36,7 @@ ol{margin:0;padding-left:1.25rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
 /* -------- Buttons -------- */
+/* No border until hover/focus (no pill “circle” at rest) */
 .btn{
   display:inline-flex; align-items:center; gap:.6rem;
   padding:.6rem 1rem; border:none; border-radius:999px;
@@ -68,8 +69,12 @@ ol{margin:0;padding-left:1.25rem}
 .about-gallery { margin-top: 1.25rem; }
 @media (max-width: 900px){ .about-hero { height: auto; } }
 
-/* -------- Services: compact 3-per-row square cards -------- */
-.lead{ max-width:900px; color:var(--muted); margin:.25rem auto 1.25rem; }
+/* ======== SERVICES: white square cards (3 per row) ======== */
+.lead{
+  max-width:900px;
+  color:var(--muted);
+  margin:.25rem auto 1.25rem;
+}
 
 .service-grid-compact{
   display:grid;
@@ -81,39 +86,57 @@ ol{margin:0;padding-left:1.25rem}
 @media (max-width:1000px){ .service-grid-compact{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
 @media (max-width:640px){ .service-grid-compact{ grid-template-columns:1fr; } }
 
+/* Clean white square with soft shadow */
 .service-card.sm{
-  background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(236,72,153,0.06) 60%, rgba(99,102,241,0.06));
-  border:1px solid #efeaf8;
-  border-radius:20px;
-  height: 260px;                 /* small, square-ish */
-  padding:14px;
-  box-shadow:0 10px 28px rgba(17,24,39,.06);
+  background:#ffffff;                 /* white */
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  aspect-ratio: 1 / 1;                /* square shape */
+  padding:12px;
+  box-shadow:0 8px 22px rgba(17,24,39,.06);
   display:grid;
-  grid-template-columns: 1fr 92px; /* text | small image */
-  align-items:center;
+  grid-template-rows: 46% 1fr;        /* top media, bottom text */
+  grid-template-areas:
+    "media"
+    "text";
   overflow:hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .service-card.sm:hover{
-  transform: translateY(-4px);
-  box-shadow:0 16px 40px rgba(17,24,39,.09);
-  border-color:#e7def6;
+  transform: translateY(-3px);
+  box-shadow:0 14px 32px rgba(17,24,39,.08);
+  border-color:#e3e6ea;
 }
 
-.card-left{ align-self:start; }
+/* Without changing your HTML, place image on top and text below */
+.card-right{ grid-area: media; display:block; }
+.card-left{  grid-area: text;  align-self:start; }
+
+/* Icon, title, copy */
 .service-icon{
-  width:32px; height:32px; border-radius:10px; display:inline-grid; place-items:center;
-  color:#fff; font-size:18px; line-height:1; box-shadow:0 6px 18px rgba(0,0,0,.1); margin-bottom:.5rem;
+  width:28px; height:28px; border-radius:9px;
+  display:inline-grid; place-items:center;
+  color:#fff; font-size:16px; line-height:1;
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+  margin-bottom:.45rem;
 }
-.grad-pink{ background:linear-gradient(135deg,#ec4899,#a855f7); }
-.grad-rose{ background:linear-gradient(135deg,#f43f5e,#f97316); }
-.grad-violet{ background:linear-gradient(135deg,#8b5cf6,#06b6d4); }
-.grad-indigo{ background:linear-gradient(135deg,#6366f1,#9333ea); }
+.grad-pink{  background:linear-gradient(135deg,#ec4899,#a855f7); }
+.grad-rose{  background:linear-gradient(135deg,#f43f5e,#f97316); }
+.grad-violet{background:linear-gradient(135deg,#8b5cf6,#06b6d4); }
+.grad-indigo{background:linear-gradient(135deg,#6366f1,#9333ea); }
 
-.service-card h3{ margin:.1rem 0 .35rem; font-size:clamp(1rem,2vw,1.15rem); }
-.service-card p{ margin:0; color:#374151; line-height:1.55; font-size:.95rem; }
+.service-card h3{
+  margin:.25rem 0 .35rem;
+  font-size:clamp(1rem,2vw,1.12rem);
+}
+.service-card p{
+  margin:0;
+  color:#374151;
+  line-height:1.55;
+  font-size:.95rem;
+}
 
-/* clamp: keep 3 lines max for neat cards */
+/* keep text neat: max 3 lines on small cards */
 .clamp{
   display:-webkit-box;
   -webkit-line-clamp:3;
@@ -121,18 +144,23 @@ ol{margin:0;padding-left:1.25rem}
   overflow:hidden;
 }
 
-.card-right{ display:flex; justify-content:flex-end; align-items:flex-end; height:100%; }
+/* Top image fills width, with soft radius */
 .service-thumb{
-  width: 92px; height: 92px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  background: #fafafa;
-  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid #e5e7eb;
+  background:#fafafa;
+  box-shadow:0 6px 16px rgba(0,0,0,.05);
 }
 
-/* CTA inside Services */
-.services-cta{ margin-top: 1rem; display:flex; justify-content:flex-start; }
+/* CTA under the grid */
+.services-cta{
+  margin-top: 1rem;
+  display:flex;
+  justify-content:flex-start;
+}
 
 /* -------- Lightbox -------- */
 .lightbox{
@@ -152,6 +180,8 @@ ol{margin:0;padding-left:1.25rem}
   .frame{background:#111;border-color:#222}
   .gallery img{border-color:#222}
   .footer{border-color:#222}
-  .service-card.sm{ border-color:#222; background:linear-gradient(135deg, rgba(124,58,237,0.12), rgba(236,72,153,0.12) 60%, rgba(99,102,241,0.12)); }
+  /* keep cards white-ish but readable in dark */
+  .service-card.sm{ background:#0f0f10; border-color:#242424; }
   .service-thumb{ border-color:#2a2a2a; background:#111; }
+  .service-card p{ color:#d1d5db; }
 }
