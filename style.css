@@ -176,3 +176,34 @@ ol{margin:0;padding-left:1.25rem}
   .service-thumb{ border-color:#2a2a2a; background:#111; }
   .copy, .bullets{ color:#d1d5db; }
 }
+/* ===== Upscale Services cards ~1.4× while keeping 4 per row ===== */
+
+/* Make the grid container wider so each of the 4 squares grows */
+@media (min-width: 1101px){
+  .service-grid-compact{
+    max-width: 1680px;   /* was 1200px → ~1.4× wider */
+    gap: 20px;           /* a touch more breathing room */
+  }
+  .service-card.sm{
+    padding: 16px;       /* slightly larger internal padding */
+    border-radius: 20px; /* keeps proportions looking nice */
+  }
+}
+
+/* Keep the squares square, but allocate a bit more space to text */
+.service-card.sm{
+  grid-template-rows: 42% 1fr;  /* was 48% 1fr → more room for text */
+}
+
+/* Ensure the text stays inside; stable scrollbar if needed */
+.card-text{
+  overflow: auto;
+  padding-right: 6px;
+  scrollbar-gutter: stable both-edges; /* modern browsers */
+}
+
+/* Optional: thinner scrollbar appearance */
+.card-text::-webkit-scrollbar{ width: 6px; }
+.card-text::-webkit-scrollbar-thumb{ background:#d1d5db; border-radius:8px; }
+.card-text::-webkit-scrollbar-track{ background:transparent; }
+}
