@@ -68,32 +68,33 @@ ol{margin:0;padding-left:1.25rem}
 .about-gallery { margin-top: 1.25rem; }
 @media (max-width: 900px){ .about-hero { height: auto; } }
 
-/* ======== SERVICES: white square cards (3 per row) ======== */
+/* ======== SERVICES: clean white square cards (4 per row) ======== */
 .lead{
   max-width:900px;
   color:var(--muted);
   margin:.25rem auto 1.25rem;
 }
 
+/* 4 columns desktop, 2 tablet, 1 mobile */
 .service-grid-compact{
   display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap:16px;
   max-width:1200px;
   margin:0 auto;
 }
-@media (max-width:1000px){ .service-grid-compact{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
-@media (max-width:640px){ .service-grid-compact{ grid-template-columns:1fr; } }
+@media (max-width:1100px){ .service-grid-compact{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (max-width:640px){  .service-grid-compact{ grid-template-columns:1fr; } }
 
 .service-card.sm{
-  background:#ffffff;               /* pure white, no tint */
+  background:#ffffff;               /* pure white */
   border:1px solid #e5e7eb;
   border-radius:18px;
   aspect-ratio: 1 / 1;              /* square */
   padding:12px;
   box-shadow:0 8px 22px rgba(17,24,39,.06);
   display:grid;
-  grid-template-rows: 48% 1fr;      /* top image, bottom text */
+  grid-template-rows: 48% 1fr;      /* image on top, text below */
   overflow:hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
@@ -114,23 +115,35 @@ ol{margin:0;padding-left:1.25rem}
   box-shadow:0 6px 16px rgba(0,0,0,.05);
 }
 
-/* text area */
-.card-text{ align-self:start; }
+/* text area — scrollable if long so it never overflows */
+.card-text{
+  align-self:start;
+  overflow:auto;          /* ensures text always fits inside the box */
+  padding-right:4px;      /* room for scrollbar */
+}
+
+/* thin scrollbar (WebKit) */
+.card-text::-webkit-scrollbar{ width:6px; }
+.card-text::-webkit-scrollbar-thumb{ background:#d1d5db; border-radius:8px; }
+.card-text::-webkit-scrollbar-track{ background:transparent; }
+
+/* Titles vs description sizes */
 .service-card h3{
-  margin:.5rem 0 .35rem;
-  font-size:clamp(1rem,2vw,1.12rem);
+  margin:.5rem 0 .3rem;
+  font-size:clamp(1rem,2vw,1.06rem);  /* title */
+  font-weight:600;
 }
 .copy{
   margin:0;
   color:#374151;
   line-height:1.55;
-  font-size:.95rem;
+  font-size:.92rem;                   /* slightly smaller than title */
 }
 .bullets{
-  margin:.6rem 0 0 1rem;
+  margin:.55rem 0 0 1rem;
   color:#374151;
   line-height:1.55;
-  font-size:.95rem;
+  font-size:.92rem;                   /* match description size */
 }
 .bullets li{ margin:.15rem 0; }
 
