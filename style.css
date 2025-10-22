@@ -225,4 +225,67 @@ ol{margin:0;padding-left:1.25rem}
 @media (max-width: 640px){
   .service-card.sm{ height: clamp(340px, 60vw, 440px); }
 }
+/* ===== Mobile Services layout: longer, readable cards ===== */
+@media (max-width: 640px){
+  /* 1 card per row, normal gaps */
+  .service-grid-compact{
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  /* Make cards tall, with more room for text */
+  .service-card.sm{
+    /* Stop forcing square: make a tall rectangle */
+    aspect-ratio: auto;
+    height: clamp(560px, 92vh, 780px);   /* MUCH longer for phones */
+    padding: 18px 16px;
+    border-radius: 20px;
+
+    /* Give more of the card to the text area */
+    grid-template-rows: 36% 1fr;         /* image 36%, text 64% */
+  }
+
+  /* Image area stays neat at the top */
+  .card-media{
+    height: 100%;
+    min-height: 0;
+  }
+  .service-thumb{
+    border-radius: 16px;
+  }
+
+  /* Text area: larger, airier typography; scroll only if needed */
+  .card-text{
+    overflow: auto;                      /* content never spills out */
+    padding-right: 6px;
+    scrollbar-gutter: stable both-edges; /* prevents layout shift when scrolling */
+  }
+  .service-card h3{
+    font-size: 1.15rem;                  /* title slightly bigger on phones */
+    margin: .55rem 0 .4rem;
+  }
+  .copy{
+    font-size: 1rem;                     /* easier to read than .92rem */
+    line-height: 1.68;
+  }
+  .bullets{
+    font-size: 1rem;
+    line-height: 1.68;
+    margin-top: .6rem;
+  }
+
+  /* Optional: add a bit more gap between Services and CTA on phones */
+  .services-cta{ margin-top: 1.25rem; }
+}
+
+/* Small tablets (portrait) get a taller card too */
+@media (min-width: 641px) and (max-width: 900px){
+  .service-card.sm{
+    aspect-ratio: auto;
+    height: clamp(480px, 65vh, 640px);
+    grid-template-rows: 38% 1fr;        /* a touch more image space */
+  }
+  .copy, .bullets{ font-size: .96rem; line-height: 1.6; }
+}
 
