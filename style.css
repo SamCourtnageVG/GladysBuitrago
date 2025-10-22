@@ -36,72 +36,30 @@ ol{margin:0;padding-left:1.25rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
 /* -------- Buttons -------- */
-/* Default: no border until hover/focus (no “circle” at rest) */
 .btn{
-  display:inline-flex;
-  align-items:center;
-  gap:.6rem;
-  padding:.6rem 1rem;
-  border:none;
-  border-radius:999px;
-  text-decoration:none;
-  color:#111827;
-  background:transparent;
-  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.6rem 1rem; border:none; border-radius:999px;
+  text-decoration:none; color:#111827; background:transparent;
+  transition:border-color .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
 }
-.btn:hover,
-.btn:focus-visible{
+.btn:hover, .btn:focus-visible{
   border:1.5px solid var(--accent);
   box-shadow:0 0 0 3px rgba(17,24,39,.08);
-  background:transparent;
-  color:#111827;
-  outline:none;
+  color:#111827; outline:none;
 }
-
-/* Button with icon (shared) */
-.btn--icon{
-  display:inline-flex;
-  align-items:center;
-  gap:.75rem; /* extra space for larger icon */
-}
-/* WhatsApp/Instagram/LinkedIn icon size (~2×, responsive) */
+.btn--icon{ display:inline-flex; align-items:center; gap:.75rem; }
 .btn--icon .icon{
   width: clamp(32px, 5.2vw, 44px);
-  height: auto;
-  display:inline-block;
-  vertical-align:middle;
-  object-fit:contain;
-  border-radius:0;
+  height:auto; display:inline-block; vertical-align:middle; object-fit:contain; border-radius:0;
 }
-/* Small phones: slightly reduce icon and gap */
-@media (max-width: 420px){
+@media (max-width:420px){
   .btn--icon .icon{ width: clamp(26px, 7vw, 32px); }
   .btn--icon{ gap:.6rem; }
 }
-
-/* Row layout for social CTAs */
-.btn-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.75rem;
-}
-
-/* Brand hover colors */
-.btn--whatsapp:hover,
-.btn--whatsapp:focus-visible{
-  border-color:#25D366;     /* WhatsApp green */
-  color:#25D366;
-}
-.btn--instagram:hover,
-.btn--instagram:focus-visible{
-  border-color:#E1306C;     /* Instagram pink-ish */
-  color:#E1306C;
-}
-.btn--linkedin:hover,
-.btn--linkedin:focus-visible{
-  border-color:#0A66C2;     /* LinkedIn blue */
-  color:#0A66C2;
-}
+.btn-row{ display:flex; flex-wrap:wrap; gap:.75rem; }
+.btn--whatsapp:hover, .btn--whatsapp:focus-visible{ border-color:#25D366; color:#25D366; }
+.btn--instagram:hover, .btn--instagram:focus-visible{ border-color:#E1306C; color:#E1306C; }
+.btn--linkedin:hover, .btn--linkedin:focus-visible{ border-color:#0A66C2; color:#0A66C2; }
 
 /* -------- About split layout -------- */
 .about-split { align-items: center; gap: 2rem; }
@@ -110,100 +68,77 @@ ol{margin:0;padding-left:1.25rem}
 .about-gallery { margin-top: 1.25rem; }
 @media (max-width: 900px){ .about-hero { height: auto; } }
 
-/* -------- Servicios -------- */
-.lead{
-  max-width: 900px;
-  color: var(--muted);
-  margin: .25rem auto 2rem;
-  text-align: left;
-}
-.services-grid{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.service{
-  grid-column: span 6;            /* 2 por fila en desktop */
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:16px;
-  overflow:hidden;
-  padding: 0 0 1rem 0;
-  box-shadow:0 8px 24px rgba(0,0,0,.04);
-}
-@media (max-width: 1100px){ .service{ grid-column: span 12; } } /* 1 por fila en tablet/móvil */
+/* -------- Service cards (inspired style) -------- */
+.lead{ max-width:900px; color:var(--muted); margin:.25rem auto 2rem; text-align:left; }
 
-.service h3{
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-  margin: .9rem 1rem .5rem;
+.service-cards{
+  display:grid; grid-template-columns:repeat(12,1fr); gap:18px;
+  max-width:1200px; margin:0 auto;
 }
-.service p{
-  margin: 0 1rem 1rem;
-  color: #374151;
-  line-height: 1.65;
+.service-card{
+  grid-column:span 4;
+  background: linear-gradient(140deg, rgba(124,58,237,0.06), rgba(236,72,153,0.06) 55%, rgba(99,102,241,0.06));
+  border:1px solid #efeaf8;
+  border-radius:22px;
+  padding:20px 20px 16px;
+  box-shadow: 0 10px 30px rgba(17,24,39,0.05);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.service .bullets{
-  margin: .25rem 1.2rem 1rem 1.2rem;
-  padding-left: 1rem;
-  color:#374151;
-  line-height:1.6;
+.service-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(17,24,39,0.08);
+  border-color:#e7def6;
 }
-.service .bullets li{ margin:.25rem 0; }
+@media (max-width:1100px){ .service-card{ grid-column:span 6; } }
+@media (max-width:700px){ .service-card{ grid-column:span 12; } }
+
+.service-top{ display:flex; align-items:center; gap:.8rem; margin-bottom:.35rem; }
+.service-card h3{ margin:0; font-size:clamp(1.05rem,2.2vw,1.3rem); }
+.service-card p{ color:#374151; line-height:1.65; margin:.25rem 0 1rem; }
+
+.service-icon{
+  width:40px; height:40px; border-radius:12px;
+  display:inline-grid; place-items:center;
+  color:#fff; font-size:20px; line-height:1;
+  box-shadow:0 6px 18px rgba(0,0,0,.1);
+}
+.grad-pink{ background:linear-gradient(135deg,#ec4899,#a855f7); }
+.grad-rose{ background:linear-gradient(135deg,#f43f5e,#f97316); }
+.grad-violet{ background:linear-gradient(135deg,#8b5cf6,#06b6d4); }
+.grad-indigo{ background:linear-gradient(135deg,#6366f1,#9333ea); }
 
 .service-media{
-  position:relative;
-  width:100%;
-  aspect-ratio: 16 / 9;           /* mantiene una caja agradable */
-  background: linear-gradient(135deg,#f1f5f9,#e5e7eb);
-  border-bottom:1px solid #e5e7eb;
+  border-radius:16px;
+  border:1px dashed #e5e7eb;
+  background:linear-gradient(145deg,#fafafa,#f5f5f7);
+  min-height:140px;
+  display:grid; place-items:center;
+  color:#9ca3af; font-size:.95rem;
 }
-.service-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+.service-media.placeholder span{ opacity:.9; }
 
-/* CTA dentro de Servicios */
-.services-cta{
-  margin-top: 1.25rem;
-  display:flex;
-  justify-content:flex-start;
-}
+/* CTA inside Services */
+.services-cta{ margin-top:1.25rem; display:flex; justify-content:flex-start; }
 .services-cta .btn{ margin-top:.25rem; }
-
-/* Hover sutil en las cards */
-.service:hover{
-  transform: translateY(-2px);
-  transition: transform .15s ease, box-shadow .15s ease;
-  box-shadow:0 14px 30px rgba(0,0,0,.06);
-}
 
 /* -------- Lightbox -------- */
 .lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:50;
+  position:fixed; inset:0; background:rgba(0,0,0,.85);
+  display:none; align-items:center; justify-content:center; z-index:50;
 }
 .lightbox.open{ display:flex; }
 .lightbox img{
-  max-width:92vw;
-  max-height:92vh;
-  border-radius:12px;
+  max-width:92vw; max-height:92vh; border-radius:12px;
   box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
 
-/* -------- Modo oscuro (opcional) -------- */
+/* -------- Dark mode (optional) -------- */
 @media (prefers-color-scheme: dark){
   :root{ --bg:#0b0b0b; --ink:#f4f4f4; --muted:#9aa0a6; --accent:#e5e7eb; --soft:#121212 }
   nav a{border-color:#222}
   .frame{background:#111;border-color:#222}
   .gallery img{border-color:#222}
   .footer{border-color:#222}
+  .service-card{ border-color:#222; background:linear-gradient(140deg, rgba(124,58,237,0.12), rgba(236,72,153,0.12) 55%, rgba(99,102,241,0.12)); }
+  .service-media{ background:linear-gradient(145deg,#0f0f10,#151517); border-color:#2a2a2a; color:#a3a3a3; }
 }
