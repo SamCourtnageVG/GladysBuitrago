@@ -25,16 +25,12 @@
   </header>
 
   <main>
-    <!-- ABOUT: big image left, text right; gallery below -->
+    <!-- ABOUT -->
     <section id="about" class="section">
       <div class="grid two about-split">
-        <!-- LEFT: big portrait -->
         <div class="frame about-hero">
-          <!-- Cambia la extensión si tu archivo es .jpg -->
           <img src="images/About Me Image.jpeg" alt="Gladys con sombrero">
         </div>
-
-        <!-- RIGHT: text -->
         <div>
           <h2>Acerca de mí</h2>
           <p>
@@ -43,76 +39,83 @@
           </p>
         </div>
       </div>
-
-      <!-- BELOW: other photos as gallery -->
       <div class="gallery about-gallery">
         <img loading="lazy" src="images/GladysDesk.jpg" alt="Gladys trabajando en su escritorio">
         <img loading="lazy" src="images/GladysLaptop.jpg" alt="Computador con patrones de moda">
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES (new card style) -->
     <section id="services" class="section alt">
       <h2>Servicios</h2>
       <p class="lead">Soluciones completas de patronaje, desarrollo técnico y soporte para producción.</p>
 
-      <div class="services-grid">
-        <!-- 1 -->
-        <article class="card service">
-          <div class="service-media">
-            <!-- Placeholder: reemplaza el src más adelante -->
-            <img src="images/service-1.jpg" alt="Desarrollo y Digitalización de Patrones">
+      <div class="service-cards">
+        <!-- Card 1 -->
+        <article class="service-card">
+          <div class="service-top">
+            <span class="service-icon grad-pink">✂️</span>
+            <h3>Desarrollo y Digitalización de Patrones</h3>
           </div>
-          <h3>Desarrollo y Digitalización de Patrones</h3>
           <p>
             Desarrollo de patrones desde cero o desde una base preestablecida, a partir de una imagen, concepto o muestra física,
-            generando moldes digitales con resultados altamente precisos. Digitalización de moldería tradicional para migrarla
-            a formato digital. Plantillas y archivos compatibles con múltiples softwares.
+            generando moldes digitales precisos. Digitalización de moldería tradicional para migrarla a formato digital
+            con plantillas compatibles con múltiples softwares.
           </p>
+          <div class="service-media placeholder">
+            <!-- Reemplaza con tu imagen luego -->
+            <span>Imagen del servicio</span>
+          </div>
         </article>
 
-        <!-- 2 -->
-        <article class="card service">
-          <div class="service-media">
-            <img src="images/service-2.jpg" alt="Interpretación y Creación de Paquetes Técnicos">
+        <!-- Card 2 -->
+        <article class="service-card">
+          <div class="service-top">
+            <span class="service-icon grad-rose">📋</span>
+            <h3>Interpretación y Creación de Paquetes Técnicos</h3>
           </div>
-          <h3>Interpretación y Creación de Paquetes Técnicos</h3>
           <p>
-            Elaboración de fichas técnicas completas: dibujo técnico, medidas y tolerancias, lista de materiales (BOM),
-            lista de operaciones, instrucciones de confección y control de calidad. Documentación clara para replicar
-            diseños con consistencia a gran escala.
+            Fichas técnicas completas: dibujo técnico, medidas y tolerancias, lista de materiales (BOM), operaciones,
+            instrucciones de confección y control de calidad. Documentación clara para replicar diseños a gran escala.
           </p>
+          <div class="service-media placeholder">
+            <span>Imagen del servicio</span>
+          </div>
         </article>
 
-        <!-- 3 -->
-        <article class="card service">
-          <div class="service-media">
-            <img src="images/service-3.jpg" alt="Escalado y liberación de Moldería para Producción">
+        <!-- Card 3 -->
+        <article class="service-card">
+          <div class="service-top">
+            <span class="service-icon grad-violet">📐</span>
+            <h3>Escalado y liberación de Moldería para Producción</h3>
           </div>
-          <h3>Escalado y liberación de Moldería para Producción</h3>
           <p>
-            Desarrollo del patrón base y escalado por tallas con precisión milimétrica. Preparación de archivos
-            para trazo y corte, optimización de consumo, y liberación de paquete a producción con todos los insumos
-            necesarios para un flujo eficiente.
+            Escalado por tallas con precisión milimétrica. Archivos listos para trazo y corte, optimización de consumo
+            y liberación del paquete a producción con todos los insumos necesarios.
           </p>
+          <div class="service-media placeholder">
+            <span>Imagen del servicio</span>
+          </div>
         </article>
 
-        <!-- 4 -->
-        <article class="card service">
-          <div class="service-media">
-            <img src="images/service-4.jpg" alt="Consultoría en Patronaje y Producción">
+        <!-- Card 4 -->
+        <article class="service-card">
+          <div class="service-top">
+            <span class="service-icon grad-indigo">🧵</span>
+            <h3>Consultoría en Patronaje y Producción</h3>
           </div>
-          <h3>Consultoría en Patronaje y Producción</h3>
           <ul class="bullets">
             <li>Optimización de procesos en diseño, corte, confección y terminación.</li>
             <li>Capacitaciones personalizadas según la necesidad.</li>
             <li>Asesorías en métodos y tiempos en el sector textil.</li>
             <li>Acompañamiento para garantizar consistencia y calidad.</li>
           </ul>
+          <div class="service-media placeholder">
+            <span>Imagen del servicio</span>
+          </div>
         </article>
       </div>
 
-      <!-- CTA line -->
       <div class="services-cta">
         <a class="btn btn--icon btn--whatsapp" href="https://wa.me/573134774083" target="_blank" rel="noopener">
           <img src="images/Digital_Stacked_Green.png" alt="" class="icon">
@@ -165,21 +168,15 @@
         <strong>Teléfono:</strong> +57 3134774083
       </p>
 
-      <!-- Social/Contact buttons -->
       <div class="btn-row">
-        <!-- WhatsApp -->
         <a class="btn btn--icon btn--whatsapp" href="https://wa.me/573134774083" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
           <img src="images/Digital_Stacked_Green.png" alt="" class="icon">
           Escríbeme por WhatsApp
         </a>
-
-        <!-- Instagram (cambia YOURHANDLE por tu usuario) -->
         <a class="btn btn--icon btn--instagram" href="https://instagram.com/YOURHANDLE" target="_blank" rel="noopener" aria-label="Ver Instagram">
           <img src="images/Instagram_Glyph_Gradient.png" alt="" class="icon">
           Instagram
         </a>
-
-        <!-- LinkedIn (cambia YOURHANDLE por tu usuario) -->
         <a class="btn btn--icon btn--linkedin" href="https://www.linkedin.com/in/YOURHANDLE/" target="_blank" rel="noopener" aria-label="Ver LinkedIn">
           <img src="images/LI-Logo.png" alt="" class="icon">
           LinkedIn
@@ -202,15 +199,10 @@
     (function(){
       const lb = document.getElementById('lightbox');
       const lbImg = document.getElementById('lightbox-img');
-
       document.querySelectorAll('.gallery img, .frame img').forEach(img => {
         img.style.cursor = 'zoom-in';
-        img.addEventListener('click', () => {
-          lbImg.src = img.src;
-          lb.classList.add('open');
-        });
+        img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); });
       });
-
       lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
       window.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
     })();
