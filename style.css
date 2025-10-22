@@ -110,6 +110,77 @@ ol{margin:0;padding-left:1.25rem}
 .about-gallery { margin-top: 1.25rem; }
 @media (max-width: 900px){ .about-hero { height: auto; } }
 
+/* -------- Servicios -------- */
+.lead{
+  max-width: 900px;
+  color: var(--muted);
+  margin: .25rem auto 2rem;
+  text-align: left;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.service{
+  grid-column: span 6;            /* 2 por fila en desktop */
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  overflow:hidden;
+  padding: 0 0 1rem 0;
+  box-shadow:0 8px 24px rgba(0,0,0,.04);
+}
+@media (max-width: 1100px){ .service{ grid-column: span 12; } } /* 1 por fila en tablet/móvil */
+
+.service h3{
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  margin: .9rem 1rem .5rem;
+}
+.service p{
+  margin: 0 1rem 1rem;
+  color: #374151;
+  line-height: 1.65;
+}
+.service .bullets{
+  margin: .25rem 1.2rem 1rem 1.2rem;
+  padding-left: 1rem;
+  color:#374151;
+  line-height:1.6;
+}
+.service .bullets li{ margin:.25rem 0; }
+
+.service-media{
+  position:relative;
+  width:100%;
+  aspect-ratio: 16 / 9;           /* mantiene una caja agradable */
+  background: linear-gradient(135deg,#f1f5f9,#e5e7eb);
+  border-bottom:1px solid #e5e7eb;
+}
+.service-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* CTA dentro de Servicios */
+.services-cta{
+  margin-top: 1.25rem;
+  display:flex;
+  justify-content:flex-start;
+}
+.services-cta .btn{ margin-top:.25rem; }
+
+/* Hover sutil en las cards */
+.service:hover{
+  transform: translateY(-2px);
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow:0 14px 30px rgba(0,0,0,.06);
+}
+
 /* -------- Lightbox -------- */
 .lightbox{
   position:fixed;
@@ -128,7 +199,7 @@ ol{margin:0;padding-left:1.25rem}
   box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
 
-/* -------- Optional: Dark mode via system preference -------- */
+/* -------- Modo oscuro (opcional) -------- */
 @media (prefers-color-scheme: dark){
   :root{ --bg:#0b0b0b; --ink:#f4f4f4; --muted:#9aa0a6; --accent:#e5e7eb; --soft:#121212 }
   nav a{border-color:#222}
