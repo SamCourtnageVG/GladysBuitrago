@@ -36,7 +36,6 @@ ol{margin:0;padding-left:1.25rem}
 .footer{padding:1.5rem;text-align:center;border-top:1px solid #eee;color:var(--muted)}
 
 /* -------- Buttons -------- */
-/* No border until hover/focus (no pill “circle” at rest) */
 .btn{
   display:inline-flex; align-items:center; gap:.6rem;
   padding:.6rem 1rem; border:none; border-radius:999px;
@@ -86,19 +85,15 @@ ol{margin:0;padding-left:1.25rem}
 @media (max-width:1000px){ .service-grid-compact{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
 @media (max-width:640px){ .service-grid-compact{ grid-template-columns:1fr; } }
 
-/* Clean white square with soft shadow */
 .service-card.sm{
-  background:#ffffff;                 /* white */
+  background:#ffffff;               /* pure white, no tint */
   border:1px solid #e5e7eb;
   border-radius:18px;
-  aspect-ratio: 1 / 1;                /* square shape */
+  aspect-ratio: 1 / 1;              /* square */
   padding:12px;
   box-shadow:0 8px 22px rgba(17,24,39,.06);
   display:grid;
-  grid-template-rows: 46% 1fr;        /* top media, bottom text */
-  grid-template-areas:
-    "media"
-    "text";
+  grid-template-rows: 48% 1fr;      /* top image, bottom text */
   overflow:hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
@@ -108,52 +103,36 @@ ol{margin:0;padding-left:1.25rem}
   border-color:#e3e6ea;
 }
 
-/* Without changing your HTML, place image on top and text below */
-.card-right{ grid-area: media; display:block; }
-.card-left{  grid-area: text;  align-self:start; }
-
-/* Icon, title, copy */
-.service-icon{
-  width:28px; height:28px; border-radius:9px;
-  display:inline-grid; place-items:center;
-  color:#fff; font-size:16px; line-height:1;
-  box-shadow:0 4px 12px rgba(0,0,0,.12);
-  margin-bottom:.45rem;
-}
-.grad-pink{  background:linear-gradient(135deg,#ec4899,#a855f7); }
-.grad-rose{  background:linear-gradient(135deg,#f43f5e,#f97316); }
-.grad-violet{background:linear-gradient(135deg,#8b5cf6,#06b6d4); }
-.grad-indigo{background:linear-gradient(135deg,#6366f1,#9333ea); }
-
-.service-card h3{
-  margin:.25rem 0 .35rem;
-  font-size:clamp(1rem,2vw,1.12rem);
-}
-.service-card p{
-  margin:0;
-  color:#374151;
-  line-height:1.55;
-  font-size:.95rem;
-}
-
-/* keep text neat: max 3 lines on small cards */
-.clamp{
-  display:-webkit-box;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-
-/* Top image fills width, with soft radius */
+/* top image */
+.card-media{ height:100%; }
 .service-thumb{
-  width:100%;
-  height:100%;
+  width:100%; height:100%;
   object-fit:cover;
   border-radius:14px;
   border:1px solid #e5e7eb;
   background:#fafafa;
   box-shadow:0 6px 16px rgba(0,0,0,.05);
 }
+
+/* text area */
+.card-text{ align-self:start; }
+.service-card h3{
+  margin:.5rem 0 .35rem;
+  font-size:clamp(1rem,2vw,1.12rem);
+}
+.copy{
+  margin:0;
+  color:#374151;
+  line-height:1.55;
+  font-size:.95rem;
+}
+.bullets{
+  margin:.6rem 0 0 1rem;
+  color:#374151;
+  line-height:1.55;
+  font-size:.95rem;
+}
+.bullets li{ margin:.15rem 0; }
 
 /* CTA under the grid */
 .services-cta{
@@ -180,8 +159,7 @@ ol{margin:0;padding-left:1.25rem}
   .frame{background:#111;border-color:#222}
   .gallery img{border-color:#222}
   .footer{border-color:#222}
-  /* keep cards white-ish but readable in dark */
   .service-card.sm{ background:#0f0f10; border-color:#242424; }
   .service-thumb{ border-color:#2a2a2a; background:#111; }
-  .service-card p{ color:#d1d5db; }
+  .copy, .bullets{ color:#d1d5db; }
 }
